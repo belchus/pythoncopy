@@ -1,0 +1,26 @@
+{% extends 'index.html' %} {% block title %} Resultados de la busqueda {%endblock%}
+{% block main_content %}
+<div class="container">
+    <div class="row col-lg-6 col-md-12 mb-3">
+      <h2 class="my-5">El numero de orden buscado: {{number}}</h2>
+      {% if orders %}
+      <ul class="list-group mb-3">
+        {% for order in orders %}
+        <li >
+            <div class="flex-fil mb-2" >
+                <p class="my-auto"><b class="gradient">Direccion de entrega :</b>{{order.address}} <br>
+                    <b class="gradient">Cantidad de productos: </b> {{order.products}}
+                </p>
+            </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <br>
+      {% else %}
+      <span style="color: red">El producto buscado no existe</span>
+  
+      {% endif %}
+    </div>
+  </div>
+
+{%endblock%}
